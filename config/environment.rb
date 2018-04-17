@@ -1,0 +1,3 @@
+require 'bunlder'
+
+Bundler.require
