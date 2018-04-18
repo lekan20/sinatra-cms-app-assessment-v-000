@@ -1,3 +1,3 @@
-class shoe < ActiveRecord::Base
+class Shoe < ActiveRecord::Base
   belongs_to :user
 end
