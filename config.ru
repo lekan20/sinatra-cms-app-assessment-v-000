@@ -1,5 +1,4 @@
 require_relative './config/environment'
-
 require './config/environment'
 
 # if ActiveRecord::Migrator.needs_migration?
@@ -7,4 +6,5 @@ require './config/environment'
 # end
 
 use Rack::MethodOverride
+# use UsersController
 run ApplicationController

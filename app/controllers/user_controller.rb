@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     else
       redirect '/shoes'
     end
+
   end
 
 end
