@@ -10,5 +10,14 @@ class ShoesController < ApplicationController
     end
   end
 
+  get '/shoes/new' do
+    #CREATE: creates new shoe
+    if logged_in?
+      erb :'/shoes/create_shoe'
+    else
+      redirect '/login'
+    end
+  end
+
 
 end
