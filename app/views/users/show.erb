@@ -1,0 +1,8 @@
+<h1><%=@user.username%></h1>
+
+<a href="/logout">Logout</a>
+<a href="/shoes/new">New Shoe</a>
+
+<%@user.shoes.each do |shoe|%>
+<p><a href="/shoes/<%=user.id%>"> <%=shoe.brand%> <%=shoe.name%></a></p>
+<%end%>
