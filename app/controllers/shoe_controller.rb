@@ -62,6 +62,19 @@ class ShoesController < ApplicationController
     end
   end
 
+  delete '/shoes/:id/delete' do
+    #DELETE: delete an instance of shoe
+    #Checks that the creator of the shoe is deleting it
+    @shoe = Shoe.find_by_id(params[:id])
+    if session[:user_id] && @shoe.user_id == session[:user_id]
+      @shoe.delete
+      redirect '/shoes'
+    elsif !logged_in?
+      redirect '/login'
+    else
+      redirect '/shoes'
+    end
+  end
 
 
 end
