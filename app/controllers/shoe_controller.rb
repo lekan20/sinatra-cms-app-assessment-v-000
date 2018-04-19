@@ -46,6 +46,20 @@ class ShoesController < ApplicationController
       erb :'/shoes/edit_shoe'
     else
       redirect '/login'
+    end
+  end
+
+  patch '/shoes/:id/edit' do
+    #UPDATE: update tweet instance
+    if !params[:brand].empty? || !params[:name].empty?
+      @shoe = Shoe.find_by_id(params[:id])
+      @shoe.brand = (params[:brand])
+      @shoe.name = (params[:name])
+      @shoe.save
+      redirect "/shoes/#{@shoe.id}"
+    else
+      redirect "/shoes/#{@shoe.id}/edit"
+    end
   end
 
 
