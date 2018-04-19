@@ -18,4 +18,14 @@ class UsersController < ApplicationController
     end
   end
 
+  get '/login' do #if a user isn't logged in, take them to the login page.
+    if !logged_in?
+      erb :'user/login'
+    else
+      redirect '/shoes'
+    end
+  end
+
+  end
+
 end
