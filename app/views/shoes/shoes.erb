@@ -1,3 +1,8 @@
 <h1>Welcome, <a href="/users/<%=current_user.username%>"> <%=current_user.username%></a></h1>
 
 <a href="/logout">Logout</a>
+
+<%@shoes.all.each do |shoe|%>
+<p><%=shoe.brand%></p>
+<p><%=shoe.name%></p>
+<%end%>
