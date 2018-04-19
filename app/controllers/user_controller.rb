@@ -26,6 +26,16 @@ class UsersController < ApplicationController
     end
   end
 
+  post '/login' do
+    #find the user, make sure the user and thier password matches, save the user id to the session
+    #if not, bring them to the login page
+    @user = User.find_by(:username => params[:username])
+    if @user && @user.authentication(params[:password])
+      session[:user_id] = @user.id
+      redirect '/shoes'
+    else
+      redirect '/login'
+    end
   end
 
 end
