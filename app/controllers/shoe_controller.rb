@@ -4,7 +4,7 @@ class ShoesController < ApplicationController
     #Shows all shoes
     if logged_in?
       @shoes = Shoe.all
-      erb :'/shoes/shoes'
+      erb :"/shoes/shoes"
     else
       redirect '/login'
     end
