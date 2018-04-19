@@ -39,5 +39,14 @@ class ShoesController < ApplicationController
     end
   end
 
+  get '/shoes/:id/edit' do
+    #UPDATE: edit shoes brand and name
+    @shoe = Shoe.find_by_id(params[:id])
+    if session[:user_id] && @shoe.user_id == session[:user_id]
+      erb :'/shoes/edit_shoe'
+    else
+      redirect '/login'
+  end
+
 
 end
