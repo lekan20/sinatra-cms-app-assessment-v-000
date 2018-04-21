@@ -54,4 +54,14 @@ class UsersController < ApplicationController
     erb :'users/show'
   end
 
+  post '/signup' do #create a new user with inputs or send them back to signup page if any field is blank
+    if params[:username].empty? || params[:email].empty? || params[:password].empty?
+      redirect '/signup'
+    else
+      @user = User.create(:username => params[:username], :email => params[:email], :password => params[:email])
+      session[:user_id] = @user.id
+      redirect '/shoes'
+    end
+  end
+
 end
