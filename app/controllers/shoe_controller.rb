@@ -47,6 +47,7 @@ class ShoesController < ApplicationController
     if session[:user_id] && @shoe.user_id == session[:user_id]
       erb :'/shoes/edit_shoe'
     else
+      flash[:message] = "Sorry, you can't edit this shoe."
       redirect '/login'
     end
   end
