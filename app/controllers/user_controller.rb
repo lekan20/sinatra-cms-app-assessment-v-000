@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if params[:username].empty? || params[:email].empty? || params[:password].empty?
       redirect '/signup'
     else
-      @user = User.create(:username => params[:username], :email => params[:email], :password => params[:email])
+      @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
       session[:user_id] = @user.id
       redirect '/shoes'
     end
@@ -29,9 +29,9 @@ class UsersController < ApplicationController
   post '/login' do
     #find the user, make sure the user and thier password matches, save the user id to the session
     #if not, bring them to the login page
-    @user = User.find_by(:username => params[:username])
-    if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
+    user = User.find_by(:username => params[:username])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
       redirect '/shoes'
     else
       redirect '/login'
@@ -48,11 +48,6 @@ class UsersController < ApplicationController
     end
   end
 
-  get '/users/:slug' do
-    #shows all of a user's tweets
-    @user = User.find_by_slug(params[:slug])
-    erb :'users/show'
-  end
 
   post '/signup' do #create a new user with inputs or send them back to signup page if any field is blank
     if params[:username].empty? || params[:email].empty? || params[:password].empty?
@@ -62,6 +57,12 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/shoes'
     end
+  end
+
+  get '/users/:slug' do
+    #shows all of a user's shoes
+    @user = User.find_by_slug(params[:slug])
+    erb :'users/show'
   end
 
 end
