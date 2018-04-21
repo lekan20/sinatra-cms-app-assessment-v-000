@@ -2,7 +2,7 @@
 
 <a href="/logout">Logout</a>
 
-<%@shoes.all.each do |shoe|%>
-<p><%=shoe.brand%></p>
+<%@shoes.all.each.with_index(1) do |shoe, i|%>
+<p><%=i%>.<br/> <%=shoe.brand%></p>
 <p><%=shoe.name%></p>
 <%end%>

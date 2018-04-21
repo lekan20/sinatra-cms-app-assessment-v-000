@@ -3,8 +3,8 @@
 <a href="/logout">Logout</a><br></br>
 <a href="/shoes/new">New Shoe</a><br></br>
 
-<%@user.shoes.each do |shoe|%>
-<p><a href="/shoes/<%=shoe.id%>"> <%=shoe.brand%><br/><%=shoe.name%></a></p>
+<%@user.shoes.each.with_index(1) do |shoe, i|%>
+<p><a href="/shoes/<%=shoe.id%>"><%=i%>. <%=shoe.brand%><br/><%=shoe.name%></a></p>
 <%end%>
 
 <a href="/shoes">Go back to Collection</a>

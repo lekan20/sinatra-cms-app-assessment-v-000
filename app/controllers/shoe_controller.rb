@@ -24,6 +24,7 @@ class ShoesController < ApplicationController
     if !params[:brand].empty? && !params[:name].empty?
       @shoe = Shoe.create(:brand => params[:brand], :name => params[:name], :user_id => session[:user_id])
       flash[:message] = "Successfully created shoe!"
+      binding.pry
       redirect "/shoes/#{@shoe.id}"
     else
       flash[:message] = "Try again please."
