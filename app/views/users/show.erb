@@ -1,4 +1,4 @@
-<h1><%=@user.username%></h1>
+<h1><%=@user.username%>'s shoes</h1>
 
 <a href="/logout">Logout</a><br></br>
 <a href="/shoes/new">New Shoe</a><br></br>
@@ -6,3 +6,5 @@
 <%@user.shoes.each do |shoe|%>
 <p><a href="/shoes/<%=shoe.id%>"> <%=shoe.brand%><br/><%=shoe.name%></a></p>
 <%end%>
+
+<a href="/shoes">Go back to Collection</a>
