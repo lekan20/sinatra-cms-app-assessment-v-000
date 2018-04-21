@@ -26,7 +26,7 @@ class ShoesController < ApplicationController
       flash[:message] = "Successfully created shoe!"
       redirect "/shoes/#{@shoe.id}"
     else
-      flash[:message] = "Try again please."
+      flash[:message] = "Please try again."
       redirect '/shoes/new'
     end
   end

@@ -1,3 +1,9 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<br></br>
+
 <form action="/shoes" method="POST">
   <label for="brand">Brand:</label>
   <input type="text" name="brand" id="brand"><br/>
