@@ -9,3 +9,7 @@
 </form>
 
 <p><a href="/shoes">Go Back To Collection</a></p>
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
