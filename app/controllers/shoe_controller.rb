@@ -1,3 +1,5 @@
+require 'rack-flash'
+
 class ShoesController < ApplicationController
 
   get '/shoes' do
@@ -23,8 +25,10 @@ class ShoesController < ApplicationController
     #CREATE: creates new instance of shoes (creates a new shoe)
     if !params[:brand].empty? || !params[:name].empty?
       @shoe = Shoe.create(:brand => params[:brand], :name => params[:name], :user_id => session[:user_id])
+      flash[:message] = "Successfully created shoe!"
       redirect "/shoes/#{@shoe.id}"
     else
+      flash[:message] = "Try again please."
       redirect '/shoes/new'
     end
   end
