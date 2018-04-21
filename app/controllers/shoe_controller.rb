@@ -23,7 +23,6 @@ class ShoesController < ApplicationController
     #CREATE: creates new instance of shoes (creates a new shoe)
     if !params[:brand].empty? || !params[:name].empty?
       @shoe = Shoe.create(:brand => params[:brand], :name => params[:name], :user_id => session[:user_id])
-      # binding.pry
       redirect "/shoes/#{@shoe.id}"
     else
       redirect '/shoes/new'
