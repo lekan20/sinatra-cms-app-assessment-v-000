@@ -61,7 +61,7 @@ class ShoesController < ApplicationController
       flash[:message] = "Successfully edited your shoe!"
       redirect "/shoes/#{@shoe.id}"
     else
-      flash[:message] = "Please try again."
+      flash[:message] = "Sorry you can't edit this shoe."
       redirect "/shoes/#{@shoe.id}/edit"
     end
   end
