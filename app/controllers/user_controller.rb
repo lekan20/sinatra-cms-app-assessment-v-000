@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 
   get '/users/:slug' do
     #shows all of a user's shoes
-    @user = User.find_by_slug(params[:slug])
+    @user = User.find_by_slug(params[:slug].downcase)
     erb :'users/show'
   end
 
