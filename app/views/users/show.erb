@@ -4,5 +4,5 @@
 <a href="/shoes/new">New Shoe</a>
 
 <%@user.shoes.each do |shoe|%>
-<p><a href="/shoes/<%=shoe.id%>"> <%=shoe.brand%><%=shoe.name%></a></p>
+<p><a href="/shoes/<%=shoe.id%>"> <%=shoe.brand%><br/><%=shoe.name%></a></p>
 <%end%>

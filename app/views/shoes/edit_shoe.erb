@@ -1,6 +1,6 @@
 <form action="/shoes/<%=@shoe.id%>/edit" method="POST">
   <input type="hidden" id="hidden" name="_method" value="PATCH">
-  <input type="text" name="content" value="<%=@shoe.brand%>">
-  <input type="text" name="name" value="<%=@shoe.name%>">
+  <input type="text" name="brand" value="<%=@shoe.brand%>"><br/>
+  <input type="text" name="name" value="<%=@shoe.name%>"><br/>
   <input type="submit" value="submit">
 </form>
